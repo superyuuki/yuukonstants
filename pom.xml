@@ -6,7 +6,7 @@
 
     <groupId>com.superyuuki</groupId>
     <artifactId>yuukonstants</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0.0</version>
 
     <properties>
         <compiler.version>11</compiler.version>
@@ -17,9 +17,15 @@
 
     <distributionManagement>
         <repository>
-            <id>github</id>
-            <url>https://maven.pkg.github.com/superyuuki/yuukonstants</url>
+            <id>yuuki-releases</id>
+            <name>releases</name>
+            <url>https://repo.superyuuki.com/releases</url>
         </repository>
+        <snapshotRepository>
+            <id>yuuki-snapshots</id>
+            <name>snapshots</name>
+            <url>https://repo.superyuuki.com/snapshots</url>
+        </snapshotRepository>
     </distributionManagement>
 
 </project>
