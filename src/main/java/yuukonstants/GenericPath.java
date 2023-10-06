@@ -32,7 +32,7 @@ public class GenericPath {
     final String[] pathComposition;
     //final UUID uuid;
 
-    public GenericPath(String[] pathComposition) {
+    public GenericPath(String... pathComposition) {
         this.pathComposition = pathComposition;
     }
 

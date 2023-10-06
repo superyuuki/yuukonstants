@@ -7,14 +7,14 @@ public class ExplainedException extends RuntimeException implements Explained{
     final String solution;
 
     public ExplainedException(String source, String type, String message,  String solution) {
-        super(message);
+        super(message, null, false, false);
         this.source = source;
         this.type = type;
         this.solution = solution;
     }
 
     public ExplainedException(String source, String type, String message, Throwable cause,  String solution) {
-        super(message, cause);
+        super(message, cause, false, false);
         this.source = source;
         this.type = type;
         this.solution = solution;
