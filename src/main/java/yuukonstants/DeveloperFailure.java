@@ -1,5 +1,6 @@
-package com.superyuuki.yuukonstants;
+package yuukonstants;
 
+@Deprecated
 public class DeveloperFailure extends Failure {
 
     public DeveloperFailure() {
