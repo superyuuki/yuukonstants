@@ -50,6 +50,16 @@ public class GenericPath {
         return builder.toString();
     }
 
+    public String getAsTablePathNoEndSlash() {
+        StringBuilder builder = new StringBuilder();
+
+        for (String string : pathComposition) {
+            builder.append(string);
+        }
+
+        return builder.toString();
+    }
+
     public String getAsFlatTablePath() {
         StringBuilder builder = new StringBuilder();
 

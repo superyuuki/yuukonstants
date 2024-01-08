@@ -12,7 +12,7 @@ public interface Explained {
 
 
     default String toOutput() {
-        return String.format("[%s/%s]:\n\n An error has occurred: %s\n\nSolution: %s",source(), type(), message(), solution());
+        return String.format("[%s/%s]\n\n%s\n%s",source(), type(), message(), solution());
     }
 
 

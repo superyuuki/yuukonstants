@@ -6,7 +6,7 @@
 
     <groupId>xyz.auriium</groupId>
     <artifactId>yuukonstants</artifactId>
-    <version>1.0.5</version>
+    <version>1.0.6</version>
 
     <properties>
         <compiler.version>11</compiler.version>
