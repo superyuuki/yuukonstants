@@ -69,7 +69,7 @@ public class ExceptionUtil {
                 System.out.println(ANSI_RED_BACKGROUND + ANSI_BLACK + e.toOutput() + ANSI_RESET + ANSI_BLACK);
                 System.out.println();
                 System.out.println();
-                if (e.getStackTrace()[0] != null) {
+                if (e.getStackTrace().length != 0) {
                     System.out.println();
                     System.out.println(ANSI_RED_BACKGROUND + "stacktrace 1: " + e.getStackTrace()[0]);
                     System.out.println(ANSI_RED_BACKGROUND + "stacktrace 2: " + e.getStackTrace()[0]);
@@ -86,7 +86,7 @@ public class ExceptionUtil {
                 System.out.println();
 
 
-                if (e.getStackTrace()[0] != null) {
+                if (e.getStackTrace().length != 0) {
                     System.out.println();
                     System.out.println(ANSI_RED_BACKGROUND + "stacktrace 1: " + e.getStackTrace()[0]);
                     System.out.println(ANSI_RED_BACKGROUND + "stacktrace 2: " + e.getStackTrace()[0]);
