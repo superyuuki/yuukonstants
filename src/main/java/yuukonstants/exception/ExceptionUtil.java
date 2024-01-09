@@ -14,6 +14,7 @@ public class ExceptionUtil {
     static final Queue<RuntimeException> EXCEPTIONS = new ArrayDeque<>();
     static final String ANSI_RESET = "\u001B[0m";
     static final String ANSI_RED_BACKGROUND = "\u001B[41m";
+    static final String ANSI_RED = "\u001B[31m";
     static final String ANSI_GREEN_BACKGROUND = "\u001B[42m";
     static final String ANSI_BLACK = "\u001B[30m";
 
@@ -88,8 +89,8 @@ public class ExceptionUtil {
 
                 if (e.getStackTrace().length != 0) {
                     System.out.println();
-                    System.out.println(ANSI_RED_BACKGROUND + "stacktrace 1: " + e.getStackTrace()[0]);
-                    System.out.println(ANSI_RED_BACKGROUND + "stacktrace 2: " + e.getStackTrace()[0]);
+                    System.out.println(ANSI_RED + "stacktrace 1: " + e.getStackTrace()[0] + ANSI_RESET + ANSI_BLACK);
+                    System.out.println(ANSI_RED + "stacktrace 2: " + e.getStackTrace()[1] + ANSI_RESET + ANSI_BLACK);
                     System.out.println();
                     System.out.println();
                 }
