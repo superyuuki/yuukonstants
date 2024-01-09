@@ -14,6 +14,7 @@ public class ExceptionUtil {
     static final Queue<RuntimeException> EXCEPTIONS = new ArrayDeque<>();
     static final String ANSI_RESET = "\u001B[0m";
     static final String ANSI_RED_BACKGROUND = "\u001B[41m";
+    static final String ANSI_GREEN_BACKGROUND = "\u001B[42m";
     static final String ANSI_BLACK = "\u001B[30m";
 
 
@@ -27,13 +28,13 @@ public class ExceptionUtil {
                 System.out.println(ANSI_RED_BACKGROUND + ANSI_BLACK + e.toOutput() + ANSI_RESET + ANSI_BLACK);
                 System.out.println();
                 System.out.println();
-                System.out.println("-----");
-                System.out.println();
-                System.out.println();
-                System.out.println("stacktrace 1: " + e.getStackTrace()[0]);
-                System.out.println("stacktrace 2: " + e.getStackTrace()[0]);
-                System.out.println();
-                System.out.println();
+                if (e.getStackTrace()[0] != null) {
+                    System.out.println();
+                    System.out.println(ANSI_RED_BACKGROUND + "stacktrace 1: " + e.getStackTrace()[0]);
+                    System.out.println(ANSI_RED_BACKGROUND + "stacktrace 2: " + e.getStackTrace()[0]);
+                    System.out.println();
+                    System.out.println();
+                }
             }
 
             catch (ExplainedException e) {
@@ -42,13 +43,16 @@ public class ExceptionUtil {
                 System.out.println(ANSI_RED_BACKGROUND + ANSI_BLACK + e.toOutput() + ANSI_RESET + ANSI_BLACK);
                 System.out.println();
                 System.out.println();
-                System.out.println("-----");
-                System.out.println();
-                System.out.println();
-                System.out.println("stacktrace 1: " + e.getStackTrace()[0]);
-                System.out.println("stacktrace 2: " + e.getStackTrace()[0]);
-                System.out.println();
-                System.out.println();
+
+
+                if (e.getStackTrace()[0] != null) {
+                    System.out.println();
+                    System.out.println(ANSI_RED_BACKGROUND + "stacktrace 1: " + e.getStackTrace()[0]);
+                    System.out.println(ANSI_RED_BACKGROUND + "stacktrace 2: " + e.getStackTrace()[0]);
+                    System.out.println();
+                    System.out.println();
+                }
+
             }
 
             return null;
@@ -65,13 +69,13 @@ public class ExceptionUtil {
                 System.out.println(ANSI_RED_BACKGROUND + ANSI_BLACK + e.toOutput() + ANSI_RESET + ANSI_BLACK);
                 System.out.println();
                 System.out.println();
-                System.out.println("-----");
-                System.out.println();
-                System.out.println();
-                System.out.println("stacktrace 1: " + e.getStackTrace()[0]);
-                System.out.println("stacktrace 2: " + e.getStackTrace()[0]);
-                System.out.println();
-                System.out.println();
+                if (e.getStackTrace()[0] != null) {
+                    System.out.println();
+                    System.out.println(ANSI_RED_BACKGROUND + "stacktrace 1: " + e.getStackTrace()[0]);
+                    System.out.println(ANSI_RED_BACKGROUND + "stacktrace 2: " + e.getStackTrace()[0]);
+                    System.out.println();
+                    System.out.println();
+                }
             }
 
             catch (ExplainedException e) {
@@ -80,14 +84,18 @@ public class ExceptionUtil {
                 System.out.println(ANSI_RED_BACKGROUND + ANSI_BLACK + e.toOutput() + ANSI_RESET + ANSI_BLACK);
                 System.out.println();
                 System.out.println();
-                System.out.println("-----");
-                System.out.println();
-                System.out.println();
-                System.out.println("stacktrace 1: " + e.getStackTrace()[0]);
-                System.out.println("stacktrace 2: " + e.getStackTrace()[0]);
-                System.out.println();
-                System.out.println();
+
+
+                if (e.getStackTrace()[0] != null) {
+                    System.out.println();
+                    System.out.println(ANSI_RED_BACKGROUND + "stacktrace 1: " + e.getStackTrace()[0]);
+                    System.out.println(ANSI_RED_BACKGROUND + "stacktrace 2: " + e.getStackTrace()[0]);
+                    System.out.println();
+                    System.out.println();
+                }
+
             }
+
         };
     }
 
