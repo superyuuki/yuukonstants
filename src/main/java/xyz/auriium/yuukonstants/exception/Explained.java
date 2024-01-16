@@ -1,4 +1,4 @@
-package yuukonstants.exception;
+package xyz.auriium.yuukonstants.exception;
 
 /**
  * Represents a problem with a solution

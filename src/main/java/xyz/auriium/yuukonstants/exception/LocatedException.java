@@ -1,6 +1,6 @@
-package yuukonstants.exception;
+package xyz.auriium.yuukonstants.exception;
 
-import yuukonstants.GenericPath;
+import xyz.auriium.yuukonstants.GenericPath;
 
 public class LocatedException extends ExplainedException {
 

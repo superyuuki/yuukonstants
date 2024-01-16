@@ -1,9 +1,6 @@
-package yuukonstants.exception;
-
-import yuukonstants.exception.ExplainedException;
+package xyz.auriium.yuukonstants.exception;
 
 import java.util.ArrayDeque;
-import java.util.Arrays;
 import java.util.Queue;
 import java.util.function.Supplier;
 
@@ -25,7 +22,7 @@ public class ExceptionUtil {
                 return runnable.get();
             }  catch (LocatedException e) {
                 System.out.println();
-                System.out.println(format("at <%s>:", e.location.getAsTablePath()));
+                System.out.println(format("at <%s>:", e.location.tablePath()));
                 System.out.println(ANSI_RED_BACKGROUND + ANSI_BLACK + e.toOutput() + ANSI_RESET + ANSI_BLACK);
                 System.out.println();
                 System.out.println();
@@ -66,7 +63,7 @@ public class ExceptionUtil {
                 runnable.run();
             }  catch (LocatedException e) {
                 System.out.println();
-                System.out.println(format("at <%s>:", e.location.getAsTablePath()));
+                System.out.println(format("at <%s>:", e.location.tablePath()));
                 System.out.println(ANSI_RED_BACKGROUND + ANSI_BLACK + e.toOutput() + ANSI_RESET);
                 System.out.println();
                 System.out.println();

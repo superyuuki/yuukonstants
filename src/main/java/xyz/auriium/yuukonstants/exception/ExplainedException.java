@@ -1,4 +1,4 @@
-package yuukonstants.exception;
+package xyz.auriium.yuukonstants.exception;
 
 public class ExplainedException extends RuntimeException implements Explained{
 
