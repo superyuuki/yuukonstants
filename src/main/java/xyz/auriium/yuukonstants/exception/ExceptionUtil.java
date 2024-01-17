@@ -46,7 +46,7 @@ public class ExceptionUtil {
         if (e.getStackTrace().length >= 1) {
             System.out.println();
 
-            for (int i = 0; i < e.getStackTrace().length; i++) {
+            for (int i = 0; i < Math.min(e.getStackTrace().length, 4); i++) {
                 System.out.println(ANSI_RED_BACKGROUND + format("stacktrace %s: ", i) + e.getStackTrace()[i]);
             }
         }
