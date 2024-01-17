@@ -50,6 +50,8 @@ public class ExceptionUtil {
                 System.out.println(ANSI_RED_BACKGROUND + format("stacktrace %s: ", i) + e.getStackTrace()[i]);
             }
         }
+
+        System.out.println(ANSI_RESET);
     }
 
     public static <T> Supplier<T> wrapExceptionalSupplier(Supplier<T> runnable) {
