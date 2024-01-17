@@ -16,41 +16,50 @@ public class ExceptionUtil {
     static final String ANSI_BLACK = "\u001B[30m";
 
 
+    static void print(LocatedException e) {
+        System.out.println();
+        System.out.println(format("at <%s>:", e.location.tablePath()));
+        System.out.println(ANSI_RED_BACKGROUND + ANSI_BLACK + e.toOutput() + ANSI_RESET + ANSI_BLACK);
+        System.out.println();
+        System.out.println();
+
+
+        if (e.getStackTrace().length >= 1) {
+            System.out.println();
+
+            for (int i = 0; i < Math.min(e.getStackTrace().length, 4); i++) {
+                System.out.println(ANSI_RED_BACKGROUND + format("stacktrace %s: ", i) + e.getStackTrace()[i]);
+            }
+        }
+
+        System.out.println(ANSI_RESET);
+    }
+
+    static void print(ExplainedException e) {
+        System.out.println();
+        System.out.println();
+        System.out.println(ANSI_RED_BACKGROUND + ANSI_BLACK + e.toOutput() + ANSI_RESET + ANSI_BLACK);
+        System.out.println();
+        System.out.println();
+
+
+        if (e.getStackTrace().length >= 1) {
+            System.out.println();
+
+            for (int i = 0; i < e.getStackTrace().length; i++) {
+                System.out.println(ANSI_RED_BACKGROUND + format("stacktrace %s: ", i) + e.getStackTrace()[i]);
+            }
+        }
+    }
+
     public static <T> Supplier<T> wrapExceptionalSupplier(Supplier<T> runnable) {
         return () -> {
             try {
                 return runnable.get();
             }  catch (LocatedException e) {
-                System.out.println();
-                System.out.println(format("at <%s>:", e.location.tablePath()));
-                System.out.println(ANSI_RED_BACKGROUND + ANSI_BLACK + e.toOutput() + ANSI_RESET + ANSI_BLACK);
-                System.out.println();
-                System.out.println();
-                if (e.getStackTrace().length >= 2) {
-                    System.out.println();
-                    System.out.println(ANSI_RED_BACKGROUND + "stacktrace 1: " + e.getStackTrace()[0]);
-                    System.out.println(ANSI_RED_BACKGROUND + "stacktrace 2: " + e.getStackTrace()[1]);
-                    System.out.println();
-                    System.out.println();
-                }
-            }
-
-            catch (ExplainedException e) {
-                System.out.println();
-                System.out.println();
-                System.out.println(ANSI_RED_BACKGROUND + ANSI_BLACK + e.toOutput() + ANSI_RESET + ANSI_BLACK);
-                System.out.println();
-                System.out.println();
-
-
-                if (e.getStackTrace().length >= 2) {
-                    System.out.println();
-                    System.out.println(ANSI_RED_BACKGROUND + "stacktrace 1: " + e.getStackTrace()[0]);
-                    System.out.println(ANSI_RED_BACKGROUND + "stacktrace 2: " + e.getStackTrace()[1]);
-                    System.out.println();
-                    System.out.println();
-                }
-
+                print(e);
+            }catch (ExplainedException e) {
+                print(e);
             }
 
             return null;
@@ -62,32 +71,9 @@ public class ExceptionUtil {
             try {
                 runnable.run();
             }  catch (LocatedException e) {
-                System.out.println();
-                System.out.println(format("at <%s>:", e.location.tablePath()));
-                System.out.println(ANSI_RED_BACKGROUND + ANSI_BLACK + e.toOutput() + ANSI_RESET);
-                System.out.println();
-                System.out.println();
-                if (e.getStackTrace().length >= 2) {
-                    System.out.println();
-                    System.out.println(ANSI_RED_BACKGROUND + "stacktrace 1: " + e.getStackTrace()[0]);
-                    System.out.println(ANSI_RED_BACKGROUND + "stacktrace 2: " + e.getStackTrace()[1]);
-                }
-            }
-
-            catch (ExplainedException e) {
-                System.out.println();
-                System.out.println();
-                System.out.println(ANSI_RED_BACKGROUND + ANSI_BLACK + e.toOutput() + ANSI_RESET);
-                System.out.println();
-                System.out.println();
-
-
-                if (e.getStackTrace().length >= 2) {
-                    System.out.println();
-                    System.out.println(ANSI_RED_BACKGROUND + "stacktrace 1: " + e.getStackTrace()[0] + ANSI_RESET );
-                    System.out.println(ANSI_RED_BACKGROUND + "stacktrace 2: " + e.getStackTrace()[1] + ANSI_RESET );
-                }
-
+                print(e);
+            } catch (ExplainedException e) {
+                print(e);
             }
 
         };
