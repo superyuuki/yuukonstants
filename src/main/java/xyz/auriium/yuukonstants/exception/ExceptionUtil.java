@@ -28,13 +28,13 @@ public class ExceptionUtil {
         return () -> {
             try {
                 return runnable.get();
-            }  catch (ExplainedException e) {
+            } catch (ExplainedException e) {
                 for (ExceptionEatingSPI spi : access()) {
                     spi.exceptionHandlingFunction(e);
                 }
-            }
+                throw new IllegalStateException(e); //make sure to stop the show
 
-            return null;
+            }
         };
     }
 
@@ -46,6 +46,7 @@ public class ExceptionUtil {
                 for (ExceptionEatingSPI spi : access()) {
                     spi.exceptionHandlingFunction(e);
                 }
+                throw new IllegalStateException(e);
             }
 
         };
